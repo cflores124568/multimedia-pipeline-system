@@ -1,0 +1,18 @@
+Xytech Workorder 1107
+
+Producer: Joan Jett
+Operator: John Doe
+Job: Dirtfixing
+
+Location:
+/hpsans13/production/Barbie/reel1/partA/1920x1080
+/hpsans12/production/Barbie/reel1/VFX/Hydraulx
+/hpsans13/production/Barbie/reel1/VFX/Framestore
+/hpsans14/production/Barbie/reel1/VFX/AnimalLogic
+/hpsans13/production/Barbie/reel1/partB/1920x1080
+/hpsans15/production/Barbie/pickups/shot_1ab/1920x1080
+/hpsans11/production/Barbie/pickups/shot_2b/1920x1080
+/hpsans17/production/Barbie/reel1/partC/1920x1080
+
+Notes:
+Please clean files noted per Colorist Tom Brady
