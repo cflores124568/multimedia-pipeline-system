@@ -1,7 +1,7 @@
 Producer,Operator,Job,Notes
 Joan Jett,John Doe,Dirtfixing,Please clean files noted per Colorist Tom Brady
-
-
+,,,,
+,,,,
 Location,Frames to Fix,,
 /hpsans13/production/Barbie/reel1/partA/1920x1080,31-33,,
 /hpsans13/production/Barbie/reel1/partA/1920x1080,67-70,,
@@ -34,5 +34,6 @@ Location,Frames to Fix,,
 /hpsans11/production/Barbie/pickups/shot_2b/1920x1080,10001-10002,,
 /hpsans11/production/Barbie/pickups/shot_2b/1920x1080,10008,,
 /hpsans17/production/Barbie/reel1/partC/1920x1080,No frames to fix,,
+
 
 
