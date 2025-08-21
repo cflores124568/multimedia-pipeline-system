@@ -1,28 +1,29 @@
-Producer: Joan Jett,Operator: John Doe,Job: Dirtfixing,Notes: Please clean files noted per Colorist THolland and DFlowers
-
-
-Location:,Frames to Fix:
-/ddnsata2/production/Avatar/reel5/partA/1920x1080,202-204
-/ddnsata2/production/Avatar/reel5/partA/1920x1080,356-362
-/ddnsata2/production/Avatar/reel5/partA/1920x1080,401-403
-/ddnsata2/production/Avatar/reel5/partA/1920x1080,467-468
-/ddnsata2/production/Avatar/reel5/partA/1920x1080,561-562
-/ddnsata2/production/Avatar/reel5/partA/1920x1080,601-608
-/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,701-704
-/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,2678
-/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,9555-9557
-/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,9876
-/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,9956
-/ddnsata5/production/Avatar/reel5/VFX/Framestore,888-897
-/ddnsata1/production/Avatar/reel5/VFX/AnimalLogic,3410
-/ddnsata6/production/Avatar/reel5/partB/1920x1080,4120-4121
-/ddnsata6/production/Avatar/reel5/partB/1920x1080,4123-4124
-/ddnsata6/production/Avatar/reel5/partB/1920x1080,6111-6118
-/ddnsata6/production/Avatar/reel5/partB/1920x1080,7895-7897
-/ddnsata6/production/Avatar/reel5/partB/1920x1080,8011
-/ddnsata6/production/Avatar/reel5/partB/1920x1080,8543
-/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,1044-1047
-/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,4189
-/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,9087-9088
-/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,9090-9091
-/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,10800-10803
+Producer,Operator,Job,Notes
+Joan Jett,John Doe,Dirtfixing,Please clean files noted per Colorist THolland and DFlowers
+,,,
+,,,
+Location,Frames to Fix,,
+/ddnsata2/production/Avatar/reel5/partA/1920x1080,202-204,,
+/ddnsata2/production/Avatar/reel5/partA/1920x1080,356-362,,
+/ddnsata2/production/Avatar/reel5/partA/1920x1080,401-403,,
+/ddnsata2/production/Avatar/reel5/partA/1920x1080,467-468,,
+/ddnsata2/production/Avatar/reel5/partA/1920x1080,561-562,,
+/ddnsata2/production/Avatar/reel5/partA/1920x1080,601-608,,
+/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,701-704,,
+/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,2678,,
+/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,9555-9557,,
+/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,9876,,
+/ddnsata9/production/Avatar/reel5/VFX/Hydraulx,9956,,
+/ddnsata5/production/Avatar/reel5/VFX/Framestore,888-897,,
+/ddnsata1/production/Avatar/reel5/VFX/AnimalLogic,3410,,
+/ddnsata6/production/Avatar/reel5/partB/1920x1080,4120-4121,,
+/ddnsata6/production/Avatar/reel5/partB/1920x1080,4123-4124,,
+/ddnsata6/production/Avatar/reel5/partB/1920x1080,6111-6118,,
+/ddnsata6/production/Avatar/reel5/partB/1920x1080,7895-7897,,
+/ddnsata6/production/Avatar/reel5/partB/1920x1080,8011,,
+/ddnsata6/production/Avatar/reel5/partB/1920x1080,8543,,
+/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,1044-1047,,
+/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,4189,,
+/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,9087-9088,,
+/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,9090-9091,,
+/ddnsata11/production/Avatar/pickups/shot_5ab/1920x1080,10800-10803,,
