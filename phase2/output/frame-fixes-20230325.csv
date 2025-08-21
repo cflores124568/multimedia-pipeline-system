@@ -1,12 +1,13 @@
-Producer: John Bon Jovi,Operator: Tom Sandoval,Job: Dirtfixing,Notes: Please clean files noted per Colorist GLopez
-
-
-Location:,Frames to Fix:
-/ddnsata4/production/Avatar/reel3/partA/1920x1080,134-137
-/ddnsata4/production/Avatar/reel3/partA/1920x1080,712-713
-/ddnsata7/production/Avatar/reel3/VFX/Hydraulx,3045-3046
-/ddnsata9/production/Avatar/reel3/partB/1920x1080,8148-8150
-/ddnsata9/production/Avatar/reel3/partB/1920x1080,11112
-/ddnsata9/production/Avatar/reel3/partB/1920x1080,11114
-/ddnsata1/production/Avatar/pickups/shot_3ab/1920x1080,1045-1046
-/ddnsata1/production/Avatar/pickups/shot_3ab/1920x1080,1166-1168
+Producer,Operator,Job,Notes
+John Bon Jovi,Tom Sandoval,Dirtfixing,Please clean files noted per Colorist GLopez
+,,,
+,,,
+Location,Frames to Fix,,
+/ddnsata4/production/Avatar/reel3/partA/1920x1080,134-137,,
+/ddnsata4/production/Avatar/reel3/partA/1920x1080,712-713,,
+/ddnsata7/production/Avatar/reel3/VFX/Hydraulx,3045-3046,,
+/ddnsata9/production/Avatar/reel3/partB/1920x1080,8148-8150,,
+/ddnsata9/production/Avatar/reel3/partB/1920x1080,11112,,
+/ddnsata9/production/Avatar/reel3/partB/1920x1080,11114,,
+/ddnsata1/production/Avatar/pickups/shot_3ab/1920x1080,1045-1046,,
+/ddnsata1/production/Avatar/pickups/shot_3ab/1920x1080,1166-1168,,
