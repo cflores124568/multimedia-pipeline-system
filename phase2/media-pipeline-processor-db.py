@@ -639,7 +639,7 @@ def export_csv_by_date(date_str, args):
         else:
             print(f"Xytech file {xytech_file_path} not found")
         output_entries = []
-        #use xytech location order if available else alphabetical?
+        #use xytech location order if available 
         if xytech_locations:
             for xytech_location in xytech_locations:
                 if xytech_location in location_groups:
