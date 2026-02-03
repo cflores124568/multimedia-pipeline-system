@@ -1,0 +1,6 @@
+# Phase 2 dependencies
+pymongo==4.8.0
+
+# Phase 3 dependencies
+frameioclient==2.8.1
+requests==2.31.0
