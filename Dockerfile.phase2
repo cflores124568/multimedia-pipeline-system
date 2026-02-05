@@ -1,0 +1,10 @@
+#Phase 2: Database Integration
+FROM python:3.12-alpine
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir pymongo==4.8.0
+
+COPY phase2/media-pipeline-processor-db.py .
+
+CMD ["python", "media-pipeline-processor-db.py", "--help"]

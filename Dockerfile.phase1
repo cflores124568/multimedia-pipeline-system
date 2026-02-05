@@ -1,0 +1,8 @@
+#Phase 1: Frame Range Processor
+FROM python:3.12-alpine
+
+WORKDIR /app
+
+COPY phase1/ .
+
+CMD ["python", "--version"]

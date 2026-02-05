@@ -1,0 +1,14 @@
+#Phase 3: Frame.io Integration
+FROM python:3.12-alpine
+
+WORKDIR /app
+
+#Install Phase 3 dependencies
+RUN pip install --no-cache-dir \
+    pymongo==4.8.0 \
+    frameioclient==2.8.1 \
+    requests==2.31.0
+
+COPY phase3/ .
+
+CMD ["python", "--version"]
