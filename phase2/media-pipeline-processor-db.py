@@ -474,8 +474,8 @@ def insert_to_mongodb(parsed_data, args):
     #Insert parsed data into MongoDB database
     print("Inserting data into MongoDB...")
     try:
-        #Connect to local MongoDB instance
-        client = MongoClient('mongodb://localhost:27017/')
+        mongo_host = os.get_env('MONGO_HOST', 'localhost')
+        client = MongoClient(f'mongodb://{mongo_host}:27017/')
         db = client['MediaPipelineDB']
         scripts_collection = db['script_runs']
         files_collection = db['file_data']
@@ -532,7 +532,8 @@ def insert_to_mongodb(parsed_data, args):
 def view_database():
     print("Viewing database contents...")
     try:
-        client = MongoClient('mongodb://localhost:27017/')
+        mongo_host = os.get_env('MONGO_HOST', 'localhost')
+        client = MongoClient(f'mongodb://{mongo_host}:27017/')
         db = client['MediaPipelineDB']
         scripts_collection = db['script_runs']
         files_collection = db['file_data']
@@ -580,7 +581,8 @@ def export_csv_by_date(date_str, args):
     #Export MongoDB data for a specific date to CSV
     print(f"Exporting CSV for date: {date_str}")
     try:
-        client = MongoClient('mongodb://localhost:27017/')
+        mongo_host = os.get_env('MONGO_HOST', 'localhost')
+        client = MongoClient(f'mongodb://{mongo_host}:27017/')
         db = client['MediaPipelineDB']
         files_collection = db['file_data']
         #Validate date format
@@ -690,7 +692,8 @@ def export_csv_by_date(date_str, args):
 def clear_database():
     print("Clearing the database...")
     try:
-        client = MongoClient('mongodb://localhost:27017/')
+        mongo_host = os.get_env('MONGO_HOST', 'localhost')
+        client = MongoClient(f'mongodb://{mongo_host}:27017/')
         db = client['MediaPipelineDB']
         scripts_result = db['script_runs'].delete_many({})
         files_result = db['file_data'].delete_many({})
@@ -703,7 +706,6 @@ def clear_database():
         sys.exit(1)
 
 def main():
-    #Main execution flow: parse args, process files, and handle output
     args = parse_arguments()
     print("Starting script execution...")
 

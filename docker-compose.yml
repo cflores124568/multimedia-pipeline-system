@@ -18,6 +18,22 @@ services:
     networks:
       - pipeline-net
 
+  phase2:
+    build:
+      context: .
+      dockerfile: Dockerfile.phase2
+    container_name: pipeline-phase2
+    depends_on:
+      mongo:
+        condition: service_healthy
+    volumes:
+      - ./phase2/input:/app/input
+      - ./phase2/output:/app/output
+    environment:
+      - MONGO_HOST=mongo
+    networks:
+      - pipeline-net
+
 volumes:
   mongo-data:
 
