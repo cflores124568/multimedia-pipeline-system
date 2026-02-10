@@ -18,6 +18,19 @@ services:
     networks:
       - pipeline-net
 
+  phase1:
+    build:
+      context: .
+      dockerfile: Dockerfile.phase1
+    container_name: pipeline-phase1
+    volumes:
+      - ./phase1:/app
+    working_dir: /app
+    networks:
+      - pipeline-net
+    profiles:
+      - phase1
+
   phase2:
     build:
       context: .
@@ -33,6 +46,26 @@ services:
       - MONGO_HOST=mongo
     networks:
       - pipeline-net
+    profiles:
+      - phase2
+
+  phase3:
+    build:
+      context: .
+      dockerfile: Dockerfile.phase3
+    container_name: pipeline-phase3
+    depends_on:
+      mongo:
+        condition: service_healthy
+    volumes:
+      - ./phase3:/app
+    environment:
+      - MONGO_HOST=mongo
+      - FRAMEIO_TOKEN=${FRAMEIO_TOKEN}
+    networks:
+      - pipeline-net
+    profiles:
+      - phase3
 
 volumes:
   mongo-data:
