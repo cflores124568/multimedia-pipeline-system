@@ -5,6 +5,13 @@ import csv
 from datetime import datetime
 from pymongo import MongoClient
 import getpass
+from pathlib import Path
+from dotenv import load_dotenv, find_dotenv
+
+#Find .env from current directory
+loaded = load_dotenv(find_dotenv(usecwd=True))
+if not loaded:
+    print("Warning: Could not find and load any .env file")
 
 def find_file(filename):
     #Check iffilename is full or relative path
@@ -474,9 +481,11 @@ def insert_to_mongodb(parsed_data, args):
     #Insert parsed data into MongoDB database
     print("Inserting data into MongoDB...")
     try:
-        mongo_host = os.get_env('MONGO_HOST', 'localhost')
-        client = MongoClient(f'mongodb://{mongo_host}:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         scripts_collection = db['script_runs']
         files_collection = db['file_data']
         
@@ -532,9 +541,11 @@ def insert_to_mongodb(parsed_data, args):
 def view_database():
     print("Viewing database contents...")
     try:
-        mongo_host = os.get_env('MONGO_HOST', 'localhost')
-        client = MongoClient(f'mongodb://{mongo_host}:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         scripts_collection = db['script_runs']
         files_collection = db['file_data']
         
@@ -581,9 +592,11 @@ def export_csv_by_date(date_str, args):
     #Export MongoDB data for a specific date to CSV
     print(f"Exporting CSV for date: {date_str}")
     try:
-        mongo_host = os.get_env('MONGO_HOST', 'localhost')
-        client = MongoClient(f'mongodb://{mongo_host}:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         files_collection = db['file_data']
         #Validate date format
         try:
@@ -692,9 +705,11 @@ def export_csv_by_date(date_str, args):
 def clear_database():
     print("Clearing the database...")
     try:
-        mongo_host = os.get_env('MONGO_HOST', 'localhost')
-        client = MongoClient(f'mongodb://{mongo_host}:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         scripts_result = db['script_runs'].delete_many({})
         files_result = db['file_data'].delete_many({})
         print(f"Deleted {scripts_result.deleted_count} script run records")

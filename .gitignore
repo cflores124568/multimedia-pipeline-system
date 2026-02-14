@@ -1,0 +1,74 @@
+#Python 
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.installed.cfg
+MANIFEST
+
+#Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+#Dependency/build folders
+build/
+dist/
+*.egg-info/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+
+#Environment and secrets
+.env
+*.env.*
+docker-compose.override.yml
+secrets/
+*.pem
+*.key
+*.crt
+config.local.json
+settings.local.json
+
+#IDEs/ editors
+.vscode/
+.idea/
+*.code-workspace
+*.iml
+*.sublime-*
+*~
+*.swp
+\#*#
+.\#*
+
+#OS files
+.DS_Store
+.AppleDouble
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+#Project specific generated/large files
+phase*/input/*.txt
+phase*/input/*.csv
+phase*/output/
+phase3/uploads/
+
+#Logs & temp files
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.orig
+*.dump
+backups/

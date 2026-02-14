@@ -15,10 +15,13 @@ from PIL import Image
 import tempfile
 import shutil
 from frameioclient import FrameioClient
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
+from pathlib import Path
 
-#Load environment variables
-load_dotenv()
+#Find .env from current directory
+loaded = load_dotenv(find_dotenv(usecwd=True))
+if not loaded:
+    print("Warning: Could not find and load any .env file")
 
 def find_file(filename):
     #Check if filename is full or relative path
@@ -523,8 +526,11 @@ def parse_frame_range(frame_range_str):
 
 def get_matching_ranges(video_info, args):
     try:
-        client = MongoClient('mongodb://localhost:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         files_collection = db['file_data']
         
         matching_ranges = []
@@ -621,13 +627,22 @@ def render_shot_segment(video_path, start_frame, end_frame, output_path, fps):
 
 def upload_to_frameio(video_path, range_data=None):
     frameio_api_token = os.getenv("FRAMEIO_API_TOKEN")
-    project_id = "https://next.frame.io/project/a0f47c90-485a-47a2-93cd-284b7bc0b3f9"
-    root_asset_id = "a0f47c90-485a-47a2-93cd-284b7bc0b3f9"
+    #Valideate API token
+    if not frameio_api_token:
+        print("Error: FRAMEIO_API_TOKEN not found in environment variables")
+        return False
+    #Verify file exists before upload
+    if not os.path.exists(video_path):
+        print(f"Error: Video file '{video_path}' not found")
+        return False
+
+    #Destination folder ID for uploads
+    destination_id = "ba15c015-251a-49cb-98f2-c390cc9821e7" 
     
     try:
         client = FrameioClient(frameio_api_token)
-        asset = client.assets.upload(destination_id=root_asset_id, filepath=video_path)
-        print(f"{video_path} has been uploaded to Frame.io")
+        asset = client.assets.upload(destination_id=destination_id, filepath=video_path)
+        print(f"{video_path} has been uploaded to Frame.io (Asset ID: {asset.id})")
         return True
     except Exception as e:
         print(f"Failed to upload {video_path} to Frame.io: {e}")
@@ -736,8 +751,11 @@ def output_to_excel(parsed_data, video_path=None, args=None):
 def insert_to_mongodb(parsed_data, args):
     print("Inserting data into MongoDB...")
     try:
-        client = MongoClient('mongodb://localhost:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         scripts_collection = db['script_runs']
         files_collection = db['file_data']
         
@@ -795,8 +813,11 @@ def insert_to_mongodb(parsed_data, args):
 def view_database():
     print("Viewing database contents...")
     try:
-        client = MongoClient('mongodb://localhost:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         scripts_collection = db['script_runs']
         files_collection = db['file_data']
         
@@ -842,8 +863,11 @@ def view_database():
 def export_csv_by_date(date_str, args):
     print(f"Exporting CSV for date: {date_str}")
     try:
-        client = MongoClient('mongodb://localhost:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         files_collection = db['file_data']
         try:
             target_date = datetime.strptime(date_str, '%Y%m%d')
@@ -945,8 +969,11 @@ def export_csv_by_date(date_str, args):
 def clear_database():
     print("Clearing the database...")
     try:
-        client = MongoClient('mongodb://localhost:27017/')
-        db = client['MediaPipelineDB']
+        mongo_host = os.getenv('MONGO_HOST', 'localhost')
+        mongo_port = os.getenv('MONGO_PORT', '27017')
+        mongo_db_name = os.getenv('MONGO_DB_NAME', 'MediaPipelineDB')
+        client = MongoClient(f'mongodb://{mongo_host}:{mongo_port}/')
+        db = client[mongo_db_name]
         scripts_result = db['script_runs'].delete_many({})
         files_result = db['file_data'].delete_many({})
         print(f"Deleted {scripts_result.deleted_count} script run records")
